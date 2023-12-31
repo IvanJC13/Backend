@@ -6,7 +6,7 @@ import db from "./database/db.js"
 import blogRoutes from './routes/routes.js'
 
 const app = express()
-
+const port = process.env.PORT || 8000;
 app.use(cors())
 app.use(express.json())
 app.use('/blogs', blogRoutes)
@@ -18,8 +18,6 @@ try {
     console.log(`El error de conexión es: ${error}`)
 }
 
-
-
-app.listen(8000, ()=>{
-    console.log('Server UP running in http://localhost:8000/')
-})
+app.listen(port, () =>{
+    console.log(`Esta corriendo en http://localhost:${port}`);
+});
